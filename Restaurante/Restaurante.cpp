@@ -38,30 +38,23 @@ public:
 class carta {
 public:
 	string fecha;
-//	vector<plato *> platos;
-	map<string, vector<plato*>*> platos; //noimbre seccion, platos
+	//	vector<plato *> platos;
+	vector<plato > lista_platos;
 	int crearseccion(string nombre) {
-		if (platos.find(nombre) != platos.end()) {
-		//	cout << "existe" << endl;
-			return -1;
-		}
-		vector<plato*>* nseccion;//nueva seccion
-		nseccion = new vector<plato*>;
-		platos.insert(pair<string, vector<plato*>*>(nombre, nseccion));
+		
 		return 1;
 	}
-	//crear	//modificar //eliminar
+
+	int crearplato(string nombre, string desc, unsigned int precio ) {
+//		plato nuevo;
+	}
+
+	
+
 	void infomenu() {
-		cout <<"secciones : "<< platos.size()<<endl;
-		for (map<string, vector<plato*>*>::iterator i = platos.begin(); i != platos.end(); i++) {
-			vector<plato*>* lista_platos;
-			lista_platos = i->second;
-			string nombre = i->first;
-			cout << nombre << " ";
-			cout << lista_platos->size() << endl;
-			/*for (int j = 0; j < lista_platos->size(); ++j) {
-				cout << (lista_platos);
-			}*/
+		cout <<"platos : "<< lista_platos.size()<<endl;
+		for (int i = 0; i < lista_platos.size(); ++i) {
+			cout << lista_platos[i].nombre;
 		}
 	}
 };
