@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <map>
 	
 using namespace std;
 
@@ -37,8 +38,32 @@ public:
 class carta {
 public:
 	string fecha;
-	vector<plato *> platos;
+//	vector<plato *> platos;
+	map<string, vector<plato*>*> platos; //noimbre seccion, platos
+	int crearseccion(string nombre) {
+		if (platos.find(nombre) != platos.end()) {
+		//	cout << "existe" << endl;
+			return -1;
+		}
+		vector<plato*>* nseccion;//nueva seccion
+		nseccion = new vector<plato*>;
+		platos.insert(pair<string, vector<plato*>*>(nombre, nseccion));
+		return 1;
+	}
 	//crear	//modificar //eliminar
+	void infomenu() {
+		cout <<"secciones : "<< platos.size()<<endl;
+		for (map<string, vector<plato*>*>::iterator i = platos.begin(); i != platos.end(); i++) {
+			vector<plato*>* lista_platos;
+			lista_platos = i->second;
+			string nombre = i->first;
+			cout << nombre << " ";
+			cout << lista_platos->size() << endl;
+			/*for (int j = 0; j < lista_platos->size(); ++j) {
+				cout << (lista_platos);
+			}*/
+		}
+	}
 };
 
 /*class pedido {
@@ -52,5 +77,11 @@ int login(usuario* res, string id, string password);
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	carta menu;
+	
+	menu.crearseccion("entrada");
+	menu.crearseccion("entrada");
+	menu.crearseccion("postre");
+	menu.infomenu();
+	return 0;
 }
