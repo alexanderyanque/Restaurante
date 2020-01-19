@@ -2,7 +2,9 @@
 //
 
 #include <iostream>
-
+#include <vector>
+#include <string>
+	
 using namespace std;
 
 class usuario {
@@ -19,7 +21,44 @@ public:
 	}
 };
 
+class plato {
+public:
+	string nombre;
+	string descripcion;
+	unsigned int precio;
+	plato(int prec, string nomb, string desc) {
+		nombre = nomb;
+		precio = prec;
+		descripcion = desc;
+	}
+	//crear
+	//modificar
+	//eliminar
+};
 
+class seccion {
+public:
+	string nombre;
+	vector<plato> platos;
+	//crear
+	//modificar
+	//eliminar
+};
+
+class carta {
+public:
+	string fecha;
+	vector<seccion> secciones;
+	//crear
+	//modificar
+	//eliminar
+};
+
+/*class pedido {
+public:
+
+};
+*/
 
 int login(usuario* res, string id, string password);
 
