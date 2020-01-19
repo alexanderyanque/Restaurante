@@ -35,26 +35,54 @@ public:
 	//crear	//modificar //eliminar
 };
 
+int insplatoBD(plato a);//se inserta el plato en la BD
+
 class carta {
 public:
 	string fecha;
 	//	vector<plato *> platos;
 	vector<plato > lista_platos;
-	int crearseccion(string nombre) {
-		
-		return 1;
+
+	int crearplato(string nombre, string desc, unsigned int precio) {
+		//		plato nuevo;
+		plato nuevo(precio, nombre, desc);
+		lista_platos.push_back(nuevo);
+		if (insplatoBD(nuevo) == 1) {
+			return 1;
+		}
+		return -1;//error
 	}
 
-	int crearplato(string nombre, string desc, unsigned int precio ) {
-//		plato nuevo;
+	int modificarplato(string key) {
+		for (int i = 0; i < lista_platos.size(); ++i) {
+			if (lista_platos[i].nombre == key) {
+				int opcion;
+				while (opcion != 0) {
+					cout << "Opcion a modificar : " << endl;
+					cout << "1. Nombre" << endl;
+					cout << "2. Precio" << endl;
+					cout << "3. Descripcion" << endl;
+					cin >> opcion;
+					
+				}
+				return 1;
+			}
+		}
+		cout << "Plato no encontrado" << endl;
+		return 0;
 	}
+
+	int cargarcarta();//se carga desde el .txt
 
 	
+	
 
-	void infomenu() {
-		cout <<"platos : "<< lista_platos.size()<<endl;
+	void infomenu(){
+		cout << "Platos : " << lista_platos.size() << endl;
 		for (int i = 0; i < lista_platos.size(); ++i) {
-			cout << lista_platos[i].nombre;
+			cout << lista_platos[i].nombre << " : ";
+			cout << lista_platos[i].precio;
+			cout << endl;
 		}
 	}
 };
@@ -72,9 +100,6 @@ int main()
 {
 	carta menu;
 	
-	menu.crearseccion("entrada");
-	menu.crearseccion("entrada");
-	menu.crearseccion("postre");
 	menu.infomenu();
 	return 0;
 }
