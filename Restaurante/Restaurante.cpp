@@ -12,10 +12,10 @@ public:
 	string pw;
 	int tipo;
 	usuario(string a, string b, string c, int t) {
-		nombre = a;
 		id = b;
 		pw = c;
 		tipo = t;
+		nombre = a;
 	}
 };
 
