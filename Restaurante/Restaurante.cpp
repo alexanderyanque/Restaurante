@@ -31,27 +31,14 @@ public:
 		precio = prec;
 		descripcion = desc;
 	}
-	//crear
-	//modificar
-	//eliminar
-};
-
-class seccion {
-public:
-	string nombre;
-	vector<plato> platos;
-	//crear
-	//modificar
-	//eliminar
+	//crear	//modificar //eliminar
 };
 
 class carta {
 public:
 	string fecha;
-	vector<seccion> secciones;
-	//crear
-	//modificar
-	//eliminar
+	vector<plato *> platos;
+	//crear	//modificar //eliminar
 };
 
 /*class pedido {
