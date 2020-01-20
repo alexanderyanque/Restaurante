@@ -42,6 +42,7 @@ class Carta{
 		inicializar();
 	}
 	void infomenu(){
+		inicializar();
 		cout << "Platos : " << lista_platos.size() <<endl<< endl;
 		for (int i = 0; i < lista_platos.size(); ++i) {
 			cout << lista_platos[i].ID << ".";
@@ -62,7 +63,6 @@ class Carta{
 		if (myfile.is_open()){
 			for(int i=0;i<lista_platos.size();i++){
 				myfile <<lista_platos[i].name<<" "<<lista_platos[i].val<<" "<<lista_platos[i].ID<<" "<<lista_platos[i].stock<<endl;
-				cout<<1;
   			}
   			myfile.close();
 		}
@@ -185,6 +185,7 @@ class Chef{
 		
 		int modificarplato(Carta &A) {
 			string key;
+			A.inicializar();
 			cout<<"Nombre de plato a modificar ";cin>>key;
 			for (int i = 0; i < A.lista_platos.size(); ++i) {
 				if (A.lista_platos[i].name == key) {
@@ -225,8 +226,6 @@ class Chef{
 };
 
 int main(){
-//	Plato<string,int> P1("arroz",15,1,10);
-//	P1.print();
 	Chef C;
 	Carta menu;
 	
@@ -257,9 +256,6 @@ int main(){
 		}
 	}
 	
-	C.agregar(menu);
-	
-	menu.infomenu();
 	
 	
 //	Menu<string,int> p2;
