@@ -1,0 +1,6 @@
+mazamorra 3 32 4
+lomo 12 1 32
+ceviche 32 3 54
+cuy 4 12 54
+asd 3 4 5
+fafasf 7 54 8
